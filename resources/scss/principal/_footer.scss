@@ -1,0 +1,22 @@
+@use '../base/variables' as v;
+
+.footer {
+    margin-top: 5rem;
+    background-color: v.$verde;
+    margin-top: auto;
+}
+.links {
+    border-top: 1px solid v.$gris;
+    text-align: center;
+    padding: 4rem;
+    a {
+        margin: 0 5rem;
+    }
+}
+.nav-footer {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    border-top: 1px solid v.$gris;
+    padding: 2rem 0;
+}

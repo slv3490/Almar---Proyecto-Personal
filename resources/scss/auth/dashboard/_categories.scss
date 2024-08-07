@@ -1,0 +1,48 @@
+@use '../../base/variables' as v;
+
+.categorias {
+    display: flex;
+    align-items: start;
+    margin-top: 3rem;
+    .categorias-form {
+        flex: 2;
+        form {
+            max-width: none;
+        }
+    }
+    .categorias-info {
+        flex: 1;
+    }
+    .categorias-info h4 {
+        text-align: left;
+    }
+}
+.idListCategories {
+    cursor: pointer;
+}
+.categories-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+    .list {
+        background-color: lighten($color: v.$gris, $amount: 10);
+        padding: .8rem 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+.actions-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    p {
+        margin: 0 .5rem;
+        font-size: 1.5rem;
+        color: v.$blanco;
+    }
+}
+.input-edit-name {
+    width: 20rem;
+}

@@ -1,0 +1,19 @@
+@use '../../base/variables' as v;
+
+
+.rutas-user {
+    max-width: 60rem;
+    margin: 3rem auto 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 15rem;
+    a {
+        color: v.$negro;
+    }
+    .right {
+        text-align: right;
+    }
+}
+.input-disabled {
+    cursor: not-allowed;
+}

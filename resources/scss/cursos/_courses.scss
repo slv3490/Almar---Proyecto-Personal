@@ -1,0 +1,199 @@
+@use '../base/variables' as v;
+
+.seccion-cursos {
+    background-color: lighten($color: v.$gris, $amount: 10);
+    padding: 3rem;
+    border-radius: .8rem;
+}
+.cursos {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    transition-duration: 300ms;
+
+    &:hover {
+        background-color: v.$gris;
+    }
+}
+
+.container-course {
+    margin: 3rem auto;
+    .title-course {
+        text-align: left;
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+    }
+    .description-course {
+        font-size: 1.3rem;
+        margin: 1rem 0;
+    }
+    .search-courses {
+        .input {
+            background-color: v.$blanco;
+            border-radius: 3rem;
+            padding: 1rem 2rem;
+            gap: 1rem;
+            max-width: 60rem;
+            margin: 0 auto;
+            input[type='text'] {
+                background-color: transparent;
+                border: none;
+                width: 100%;
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+    }
+    .search-icon {
+        width: 2rem;
+    }
+}
+.field-filter-categories {
+    display: flex;
+    margin-bottom: 2rem;
+    input[type=checkbox] {
+        position: relative;
+        cursor: pointer;
+    }
+    input[type=checkbox]:before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 1.5rem;
+        height: 1.5rem;
+        top: 3px;
+        left: 0;
+        background-color: v.$blanco;
+        border: 1px solid v.$negro;
+    }
+    input[type=checkbox]:checked:before {
+        background-color: v.$negro;
+    }
+      
+    input[type=checkbox]:checked:after {
+        content: "";
+        display: block;
+        width: 5px;
+        height: 9px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+        position: absolute;
+        top: 5px;
+        left: 5px;
+    }
+    label {
+        margin-left: 1rem;
+    }
+}
+.idListCategories {
+    margin: 1rem;
+    font-weight: 600;
+    padding: 1rem 1.5rem;
+    background-color: lighten($color: v.$verde, $amount: 2);
+    text-align: center;
+    border-radius: .5rem;
+    transition: 300ms background-color ease;
+    user-select: none;
+    color: v.$blanco;
+    font-family: v.$fuente_principal;
+    &:hover {
+        background-color: v.$verde;
+    }
+}
+.itemsCategories {
+    flex-wrap: wrap;
+    gap: 1rem;
+    p {
+        font-size: 1.2rem;
+    }
+}
+#categoriesList {
+    display: flex;
+    flex-wrap: wrap;
+}
+.course {
+    display: flex;
+    align-items: start;
+    .courses-form {
+        flex: 2;
+        form {
+            max-width: none;
+        }
+    }
+    .course-info {
+        flex: 1;
+    }
+    .course-info h4 {
+        text-align: left;
+    }
+}
+.input-search {
+    background-color: transparent;
+    border: 1px solid v.$negro;
+}
+
+.course-price {
+    text-align: right;
+    width: 20rem;
+}
+.course-anchor {
+    justify-content: space-between;
+    transition: all 500ms ease;
+    &:hover {
+        img {
+            transition: all 400ms ease;
+            filter: brightness(85%);
+        }
+    }
+}
+.categoryOptions {
+    flex: 3;
+    select {
+        border-radius: .5rem;
+        padding: .5rem;
+        margin: 2rem 0;
+        font-family: v.$fuente_principal;
+    }
+}
+
+.section-course {
+    border-bottom: 1px solid v.$gris;
+    padding: 1.5rem 0;
+    align-items: center;
+    p {
+        margin: 0;
+    }
+    &:first-child {
+        border-top: 1px solid v.$gris;
+        margin-top: 1.5rem;
+    }
+    &:last-child {
+        border-bottom: none;
+    }
+    .container-course {
+        margin: 0;
+    }
+}
+.image-course {
+    margin: 0;
+}
+.actions {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+.overview-lesson {
+    p {
+        text-align: center;
+    }
+    .video-lesson {
+        display: block;
+        margin: 0 auto;
+        width: 109rem;
+        height: 60rem;
+    }
+}

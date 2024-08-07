@@ -1,0 +1,21 @@
+@use '../../base/variables' as v;
+
+.section-permissions {
+    padding-top: 3.5rem;
+    p {
+        font-size: 1.7rem;
+    }
+    h5, h4 {
+        text-align: left;
+    }
+    h5 {
+        margin: 3.5rem 0 1rem 0;
+    }
+}
+.container-section-permissions {
+    max-width: 70rem;
+    margin: 0 auto;
+    .order-list-permissions {
+        margin: 1.5rem 0;
+    }
+}

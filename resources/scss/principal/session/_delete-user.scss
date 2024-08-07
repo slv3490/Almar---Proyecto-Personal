@@ -1,0 +1,15 @@
+@use '../../base/variables' as v;
+
+.delete-user-account {
+    .formulario input[type="submit"] {
+        margin: auto 0 auto auto;
+        background-color: v.$rojo;
+        &:hover {
+            background-color: darken($color: v.$rojo, $amount: 5);
+        }
+    }
+    p {
+        color: v.$blanco;
+    }
+    margin-bottom: 3rem;
+}

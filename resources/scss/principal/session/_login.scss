@@ -1,0 +1,52 @@
+@use '../../base/variables' as v;
+
+.login {
+    margin-bottom: 3rem;
+    .formulario input[type="submit"] {
+        margin: auto 0 auto auto;
+    }
+    .text-spectator {
+        color: v.$rojo;
+        text-align: center;
+        text-shadow: -1px -1px 0 #fff;
+    }
+}
+.spectator {
+    display: flex;
+    input[type=checkbox] {
+        position: relative;
+        cursor: pointer;
+    }
+    input[type=checkbox]:before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 1.5rem;
+        height: 1.5rem;
+        top: -1px;
+        left: 0;
+        background-color: v.$blanco;
+        border: 1px solid v.$negro;
+    }
+    input[type=checkbox]:checked:before {
+        background-color: v.$negro;
+    }
+    
+    input[type=checkbox]:checked:after {
+        content: "";
+        display: block;
+        width: 5px;
+        height: 9px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+        position: absolute;
+        top: 1px;
+        left: 5px;
+    }
+    label {
+        margin-right: 1rem;
+    }
+}

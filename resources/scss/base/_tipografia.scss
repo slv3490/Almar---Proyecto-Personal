@@ -1,0 +1,43 @@
+@use 'variables' as v;
+
+h1, h2, h3, h4, h5 {
+    font-family: v.$fuente_principal;
+    margin: 0;
+    font-weight: 900;
+    color: v.$negro;
+    text-align: center;
+}
+
+h1 {
+    font-size: 4rem;
+}
+h2 {
+    font-size: 3.6rem;
+}
+h3 {
+    font-size: 3rem;
+    text-align: center;
+}
+h4 {
+    font-size: 2.3rem;
+    text-align: center;
+}
+h5 {
+    font-size: 1.8rem;
+    text-align: center;
+}
+p, a {
+    color: v.$blanco;
+    font-size: 2rem;
+    font-family: v.$fuente_principal;
+}
+p {
+    color: v.$negro;
+}
+input, label {
+    font-family: v.$fuente_principal;
+    font-size: 2rem;
+}
+li {
+    font-family: v.$fuente_principal;
+}

@@ -1,0 +1,49 @@
+@use '../../base/variables' as v;
+
+.dashboard {
+    background-color: v.$blanco;
+    padding: 0 4rem 1.5rem;
+    border: 1px solid v.$gris;
+    margin: 3rem auto;
+}
+@property --gradient-start {
+    syntax: "<color>";
+    initial-value: transparent;
+    inherits: false;
+}
+  
+@property --gradient-end {
+    syntax: "<color>";
+    initial-value: transparent;
+    inherits: false;
+}
+.seccion-dashboard {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid v.$gris;
+    a {
+        padding: 0 2rem;
+        color: v.$negro;
+        p {
+            padding: 1rem;
+            margin: 1.5rem 0 0;
+            background: linear-gradient(180deg, var(--gradient-end) ,var(--gradient-start) );
+            transition: 500ms --gradient-start, 500ms --gradient-end;
+            &:hover {
+                --gradient-start: rgb(161,161,161);
+                --gradient-end: rgb(255,255,255);
+                background: linear-gradient(0deg, var(--gradient-start) , var(--gradient-end) );
+            }
+        }   
+    }
+    .activo {
+        p {
+            background: linear-gradient(0deg, rgb(161,161,161) , rgb(255,255,255) );
+            padding: 1rem;
+            margin: 1.5rem 0 0;
+            &:hover {
+                background: linear-gradient(0deg, rgb(161,161,161) , rgb(255,255,255) )
+            }
+        }
+    }
+}

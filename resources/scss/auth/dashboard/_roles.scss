@@ -1,0 +1,100 @@
+@use '../../base/variables' as v;
+@use "../../cursos/courses";
+
+.header-roles {
+    display: flex;
+    align-items: center;
+    margin: 3rem 0;
+    .user-description {
+        h4 {
+            text-align: left;
+        }
+        p {
+            margin: 1rem 0 0;
+            font-size: 1.7rem;
+        }
+        flex: 1;
+    }
+    .nav-create-add {
+        text-align: right;
+        flex: 1;
+    }
+    nav {
+        .boton {
+            margin: 0;
+        }
+    }
+}
+.table-users-roles {
+    width: 100%;
+    background-color: v.$gris;
+    border-collapse: separate;
+    border-spacing: 0px 1px;
+    border-left: 1px solid v.$gris;
+    border-right: 1px solid v.$gris;
+    border-radius: .5rem;
+    th {
+        background-color: lighten($color: v.$gris, $amount: 10);
+        text-align: left;
+        padding: .875rem 2rem;
+    }
+    td {
+        padding: 1rem 2rem;
+        a {
+
+        }
+    }
+    tr {
+        background-color: v.$blanco;
+        border-bottom: 1pt solid v.$gris;
+    }
+}
+.actions-user-role {
+    margin: 0;
+    font-size: 1.1rem;
+    gap: 1.5rem;
+    font-weight: bold;
+}
+.container-permission-name {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+//Boton mas chico pero duplicado (arreglar)
+.button-permission-name {
+    margin: 0;
+    font-weight: 400;
+    padding: .5rem .8rem;
+    background-color: lighten($color: v.$verde, $amount: 2);
+    text-align: center;
+    border-radius: .5rem;
+    transition: 300ms background-color ease;
+    user-select: none;
+    color: v.$blanco;
+    font-family: v.$fuente_principal;
+    font-size: 1.3rem;
+    cursor: pointer;
+    &:hover {
+        background-color: v.$verde;
+    }
+}
+//Hacer un boton para evitar duplicidad
+.idListRoles {
+    @extend .idListCategories;
+}
+.rolesOptions {
+    flex: 3;
+    select {
+        border-radius: .5rem;
+        padding: .5rem;
+        margin: 2rem 0;
+        font-family: v.$fuente_principal;
+    }
+}
+#rolesList {
+    display: flex;
+    flex-wrap: wrap;
+}
+.section-roles {
+    padding-bottom: 3.5rem;
+}

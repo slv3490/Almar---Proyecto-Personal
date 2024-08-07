@@ -1,0 +1,26 @@
+@use '../base/variables' as v;
+
+.pagination {
+    display: flex;
+    .current-page {
+        color: v.$azul;
+    }
+    .other-pages {
+
+    }
+    .parent-url-pagination {
+        margin: 1.5rem auto 0;
+        display: inline-block;
+        background-color: v.$verde;
+        border-radius: .5rem;
+        .url-pagination {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin: 0 auto;
+        }
+    }
+    svg {
+        width: 3rem;
+    }
+}

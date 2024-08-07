@@ -1,0 +1,119 @@
+@use '../base/variables' as v;
+
+.boton {
+    background-color: #323232;
+    color: v.$blanco;
+    padding: 1rem 3rem;
+    margin: 1.5rem 0 0;
+    border: none;
+    display: inline-block;
+    text-decoration: none;
+    transition-property: background-color;
+    transition-duration: .3s;
+    font-family: v.$fuente_principal;
+    cursor: pointer;
+    &:hover {
+        background-color: darken($color: #323232, $amount: 100%);
+    }
+}
+.boton-sm {
+    @extend .boton;
+    padding: .5rem 2rem;
+    margin: 0;
+}
+.centrar-texto {
+    text-align: center;
+}
+.flex {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+}
+.mt-5 {
+    margin-top: 5rem;
+}
+.mb-5 {
+    margin-bottom: 5rem;
+}
+.mb-2 {
+    margin-bottom: 2rem;
+}
+.mt-3 {
+    margin-top: 3rem;
+}
+.mb-3 {
+    margin-bottom: 3rem;
+}
+.m-0  {
+    margin: 0 !important;
+}
+.text-left {
+    text-align: left;
+}
+.error {
+    margin: 0;
+    font-family: v.$fuente_principal;
+}
+
+.button-edit,
+.button-remove,
+.button-go-to-lesson {
+    all: unset;
+    padding: .5rem 1rem;
+    transition: 400ms background-color ease;
+    font-family: v.$fuente_principal;
+    color: v.$blanco;
+    cursor: pointer;
+}
+.button-edit {
+    background-color: v.$azul;
+    &:hover {
+        background-color: darken($color: v.$azul, $amount: 7);
+    }
+}
+.button-remove {
+    background-color: v.$rojo;
+    &:hover {
+        background-color: darken($color: v.$rojo, $amount: 7);
+    }
+}
+.button-go-to-lesson {
+    background-color: lighten($color: v.$negro, $amount: 10);
+    &:hover {
+        background-color: v.$negro;
+    }
+}
+.bold {
+    font-weight: 700;
+}
+.container-divs {
+    display: flex;
+    align-items: start;
+    margin-top: 3rem;
+    .div-left {
+        flex: 1;
+        h4 {
+            text-align: left;
+        }
+    }
+    .div-right {
+        flex: 2;
+        form {
+            max-width: none;
+        }
+    }
+    
+}
+.items-center {
+    align-items: center;
+}
+.disabled {
+    cursor: not-allowed;
+    background-color: darken($color: v.$gris, $amount: 30);
+    &:hover {
+        background-color: darken($color: v.$gris, $amount: 30);
+    }
+} 
+.display-none {
+    display: none;
+}
