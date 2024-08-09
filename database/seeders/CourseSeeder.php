@@ -18,7 +18,7 @@ class CourseSeeder extends Seeder
             "title" => fake()->sentence(),
             "description" => fake()->paragraph(),
             "price" => 199.99,
-            "image_uri" => "4e69cd77960c6e49cbef9af566913560.webp",
+            "image_uri" => "02a556571a2f7ad9a04fb55ed8ab561b.webp",
             "url" => md5(uniqid(rand(), true)),
             "user_id" => 1
         ]);
@@ -26,7 +26,7 @@ class CourseSeeder extends Seeder
             "title" => fake()->sentence(),
             "description" => fake()->paragraph(),
             "price" => 77.99,
-            "image_uri" => "4f4773979b523c8c455af54f1a2f399d.jpg",
+            "image_uri" => "2f5074bae16ad5aba484baa6d1bb01bf.jpg",
             "url" => md5(uniqid(rand(), true)),
             "user_id" => 1
         ]);
@@ -34,7 +34,7 @@ class CourseSeeder extends Seeder
             "title" => fake()->sentence(),
             "description" => fake()->paragraph(),
             "price" => 13.99,
-            "image_uri" => "88f018b428d4c2aeb52c9b493317b453.jpg",
+            "image_uri" => "aa3aeb6cb7c3c7260323656eb54aab03.jpg",
             "url" => md5(uniqid(rand(), true)),
             "user_id" => 1
         ]);
@@ -42,7 +42,7 @@ class CourseSeeder extends Seeder
             "title" => fake()->sentence(),
             "description" => fake()->paragraph(),
             "price" => 199.99,
-            "image_uri" => "4e69cd77960c6e49cbef9af566913560.webp",
+            "image_uri" => "cdb8b3ce9cb1a0a5246e8f0f0ea7c192.jpg",
             "url" => md5(uniqid(rand(), true)),
             "user_id" => 1
         ]);
@@ -50,7 +50,7 @@ class CourseSeeder extends Seeder
             "title" => fake()->sentence(),
             "description" => fake()->paragraph(),
             "price" => 77.99,
-            "image_uri" => "4f4773979b523c8c455af54f1a2f399d.jpg",
+            "image_uri" => "c386b447e15913ef217675da0bb7c13f.jpg",
             "url" => md5(uniqid(rand(), true)),
             "user_id" => 1
         ]);
@@ -58,7 +58,7 @@ class CourseSeeder extends Seeder
             "title" => fake()->sentence(),
             "description" => fake()->paragraph(),
             "price" => 13.99,
-            "image_uri" => "88f018b428d4c2aeb52c9b493317b453.jpg",
+            "image_uri" => "cdb8b3ce9cb1a0a5246e8f0f0ea7c192.jpg",
             "url" => md5(uniqid(rand(), true)),
             "user_id" => 1
         ]);
@@ -68,7 +68,7 @@ class CourseSeeder extends Seeder
             "title" => fake()->sentence(),
             "description" => fake()->paragraph(),
             "price" => 199.99,
-            "image_uri" => "4e69cd77960c6e49cbef9af566913560.webp",
+            "image_uri" => "e38e62217ef186df4eae2e8dfab22b47.webp",
             "url" => md5(uniqid(rand(), true)),
             "user_id" => 3
         ]);
@@ -76,7 +76,7 @@ class CourseSeeder extends Seeder
             "title" => fake()->sentence(),
             "description" => fake()->paragraph(),
             "price" => 77.99,
-            "image_uri" => "4f4773979b523c8c455af54f1a2f399d.jpg",
+            "image_uri" => "e38e62217ef186df4eae2e8dfab22b47.webp",
             "url" => md5(uniqid(rand(), true)),
             "user_id" => 3
         ]);
@@ -84,7 +84,7 @@ class CourseSeeder extends Seeder
             "title" => fake()->sentence(),
             "description" => fake()->paragraph(),
             "price" => 13.99,
-            "image_uri" => "88f018b428d4c2aeb52c9b493317b453.jpg",
+            "image_uri" => "cdb8b3ce9cb1a0a5246e8f0f0ea7c192.jpg",
             "url" => md5(uniqid(rand(), true)),
             "user_id" => 3
         ]);
@@ -92,7 +92,7 @@ class CourseSeeder extends Seeder
             "title" => fake()->sentence(),
             "description" => fake()->paragraph(),
             "price" => 199.99,
-            "image_uri" => "4e69cd77960c6e49cbef9af566913560.webp",
+            "image_uri" => "aa3aeb6cb7c3c7260323656eb54aab03.jpg",
             "url" => md5(uniqid(rand(), true)),
             "user_id" => 3
         ]);
@@ -108,7 +108,7 @@ class CourseSeeder extends Seeder
             "title" => fake()->sentence(),
             "description" => fake()->paragraph(),
             "price" => 13.99,
-            "image_uri" => "88f018b428d4c2aeb52c9b493317b453.jpg",
+            "image_uri" => "aa3aeb6cb7c3c7260323656eb54aab03.jpg",
             "url" => md5(uniqid(rand(), true)),
             "user_id" => 3
         ]);

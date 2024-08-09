@@ -157,6 +157,7 @@ class RoleTest extends TestCase
         $permission2->delete();
         $permission3->delete();
         $permission4->delete();
+        $user->delete();
     }
 
     public function test_can_delete_roles(): void
@@ -179,6 +180,7 @@ class RoleTest extends TestCase
  
         $permission1->delete();
         $permission2->delete();
+        $user->delete();
     }
 
     public function test_can_not_delete_roles_if_you_do_not_have_the_necessary_permissions(): void
@@ -202,5 +204,6 @@ class RoleTest extends TestCase
         $role->delete();
         $permission1->delete();
         $permission2->delete();
+        $user->delete();
     }
 }

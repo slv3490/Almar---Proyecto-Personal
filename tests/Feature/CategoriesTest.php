@@ -11,7 +11,6 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class CategoriesTest extends TestCase
 {
-    use DeleteUser;
     /**
      * A basic feature test example.
      */
@@ -21,7 +20,7 @@ class CategoriesTest extends TestCase
 
         $response = $this->actingAs($user)->get(route("categories.index"));
         $response->assertStatus(401);
-        $this->deleteUser($user->email);
+        $user->delete();
     }
     public function test_can_non_enter_to_the_create_category_page_if_you_do_not_have_the_necessary_permissions(): void
     {
@@ -29,7 +28,7 @@ class CategoriesTest extends TestCase
 
         $response = $this->actingAs($user)->get(route("create-categories"));
         $response->assertStatus(401);
-        $this->deleteUser($user->email);
+        $user->delete();
     }
     public function test_can_see_category_page_and_all_categories(): void
     {
@@ -41,7 +40,7 @@ class CategoriesTest extends TestCase
         $response->assertViewIs("user.dashboard.categories.index");
         $response->assertViewHas(["categories" => Category::all(), "title" => "Categories"]);
 
-        $this->deleteUser($user->email);
+        $user->delete();
     }
     public function test_get_all_categories(): void
     {
@@ -67,12 +66,7 @@ class CategoriesTest extends TestCase
         $response->assertViewIs("user.dashboard.categories.create-categories");
         $response->assertViewHas("title", "Categories");
 
-        $this->deleteUser($user->email);
-    }
-
-    protected function deleteCategory($category) {
-        $categoryFind = Category::find($category->id);
-        $categoryFind->delete();
+        $user->delete();
     }
 
     public function test_can_create_a_new_category(): void
@@ -87,7 +81,7 @@ class CategoriesTest extends TestCase
         $response->assertRedirect(route("categories.index"));
         $response->assertSessionHas("message", "¡Categoria creada exitosamente!");
 
-        $this->deleteUser($user->email);
+        $user->delete();
     }
 
     public function test_can_edit_category_name(): void
@@ -107,7 +101,7 @@ class CategoriesTest extends TestCase
             ]
         ]);
 
-        $this->deleteCategory($category);
+        $category->delete();
     }
     public function test_can_delete_category(): void
     {

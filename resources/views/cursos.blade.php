@@ -9,7 +9,7 @@
             <div class="search-courses">
                 <form action="{{ route('cursos') }}" method="GET">
                     <div class="flex input">
-                        <img class="search-icon" src="{{ Vite::asset('resources/img/search-icon.svg') }}" alt="">
+                        <img class="search-icon" src="{{ Vite::asset('resources/img/search-icon.svg') }}" alt="Icon Search">
                         <input name="search" type="text" placeholder="Buscar Cursos" >
                     </div>
                 </form>
@@ -41,8 +41,11 @@
                 </form>
             </div>
             <div id="showFilteredCourses">
+                @if ($courses->isEmpty())
+                    <p>No hay cursos con ese nombre.</p>
+                @endif
                 @foreach ($courses as $course)
-                    @if (!empty($course->lessons[0]->id))
+                    @if (!$course->lessons->isEmpty())
                         <a href="{{ route('courses.watch', ['courseUrl' => $course->url, 'lesson' => $course->lessons[0]->id]) }}" class="course section-course course-anchor">
                             <div class="flex">
                                 <img src="{{ asset('storage/images/'.$course->image_uri) }}" class="image-course">

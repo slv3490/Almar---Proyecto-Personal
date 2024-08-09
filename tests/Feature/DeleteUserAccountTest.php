@@ -11,21 +11,18 @@ use Tests\DeleteUser;
 
 class DeleteUserAccountTest extends TestCase
 {
-    use DeleteUser;
     /**
      * A basic feature test example.
      */
     public function test_can_see_user_profile_page(): void
     {
-        $user = User::factory()->create([
-            'password' => 'passwordexample'
-        ]);
+        $user = User::factory()->create();
         $response = $this->actingAs($user)->get(route("user.profile"));
 
         $response->assertStatus(200);
         $response->assertViewIs("user.profile.profile");
 
-        $this->deleteUser($user->email);
+        $user->delete();
     }
 
     public function test_can_delete_user_account(): void 
@@ -39,5 +36,6 @@ class DeleteUserAccountTest extends TestCase
         ]);
         $response->assertStatus(302);
         $response->assertRedirect(route("index"));
+        $user->delete();
     }
 }

@@ -24,6 +24,7 @@ class DashboardUserTest extends TestCase
             "title" => "Users"
         ]);
         $response->assertStatus(200);
+        $user->delete();
     }
     public function test_can_see_dashboard_user_update_role_page(): void
     {
@@ -35,6 +36,7 @@ class DashboardUserTest extends TestCase
         
         $response->assertViewIs("user.dashboard.users.update-users");
         $response->assertStatus(200);
+        $user->delete();
     }
 
     public function test_can_update_user_role(): void
@@ -51,5 +53,7 @@ class DashboardUserTest extends TestCase
         
         $response->assertStatus(302);
         $response->assertRedirect(route("users.index"));
+        $user1->delete();
+        $user2->delete();
     }
 }
