@@ -197,3 +197,12 @@
         height: 60rem;
     }
 }
+#showFilteredCourses {
+    flex: 3;
+}
+.filter-checkbox {
+    flex: 1;
+    h3 {
+        text-align: left;
+    }
+}

@@ -44,6 +44,7 @@ class LessonTest extends TestCase
         $response = $this->actingAs($user)->get(route("lesson.lesson", $course->url));
         $response->assertViewIs("user.dashboard.lessons.show-lesson");
         $response->assertStatus(200);
+        $user->delete();
     }
 
     public function test_can_not_see_all_lessons_in_a_course_if_you_do_not_have_the_necessary_permissions(): void
@@ -72,6 +73,7 @@ class LessonTest extends TestCase
 
         $response = $this->actingAs($user)->get(route("lesson.lesson", $course->url));
         $response->assertStatus(401);
+        $user->delete();
     }
 
     public function test_can_create_lesson(): void
@@ -113,6 +115,7 @@ class LessonTest extends TestCase
             "content_uri" => "https://youtube.com/embed/aZ9jJcPCa7Q?si=rD9L0P8LK5c_6XZt",
             "course_id" => $course->id
         ]);
+        $user->delete();
     }
 
     public function test_can_not_see_create_lessons_page_if_you_do_not_have_the_necessary_permissions(): void
@@ -141,6 +144,7 @@ class LessonTest extends TestCase
 
         $response = $this->actingAs($user)->get(route("create-lessons", $course->url));
         $response->assertStatus(401);
+        $user->delete();
     }
 
     public function test_can_not_create_lessons_if_you_do_not_have_the_necessary_permissions(): void
@@ -180,6 +184,7 @@ class LessonTest extends TestCase
             "content_uri" => "https://youtube.com/embed/aZ9jJcPCa7Q?si=rD9L0P8LK5c_6XZt",
             "course_id" => $course->id
         ]);
+        $user->delete();
     }
 
     public function test_can_see_update_lesson_page(): void
@@ -216,6 +221,7 @@ class LessonTest extends TestCase
 
         $response = $this->actingAs($user)->get(route("show-lessons", ["courseUrl" => $course->url, "id" => $lesson->id]));
         $response->assertStatus(200);
+        $user->delete();
     }
 
     public function test_can_update_lessons(): void
@@ -263,6 +269,7 @@ class LessonTest extends TestCase
             "description" => "Learn about the basics of Javascript.",
             "content_uri" => "https://youtube.com/embed/aZ9jJcPCa7Q?si=rD9L0P8LK5c_6XZt"
         ]);
+        $user->delete();
     }
 
     public function test_can_not_update_lessons_if_you_do_not_have_the_necessary_permissions(): void
@@ -307,6 +314,7 @@ class LessonTest extends TestCase
             "description" => "learn how to cook.",
             "content_uri" => "https://youtube.com/embed/aZ9jJcPCa7Q?si=rD9L0P8LK5c_6XZt"
         ]);
+        $user->delete();
     }
 
     public function test_can_remove_lesson(): void
@@ -350,6 +358,7 @@ class LessonTest extends TestCase
             "description" => "description",
             "content_uri" => "https://youtube.com/embed/aZ9jJcPCa7Q?si=rD9L0P8LK5c_6XZt"
         ]);
+        $user->delete();
     }
 
     public function test_can_not_remove_lessons_if_you_do_not_have_the_necessary_permissions(): void
@@ -390,5 +399,6 @@ class LessonTest extends TestCase
             "description" => "lesson on the importance of ingredients",
             "content_uri" => "https://youtube.com/embed/aZ9jJcPCa7Q?si=rD9L0P8LK5c_6XZt"
         ]);
+        $user->delete();
     }
 }

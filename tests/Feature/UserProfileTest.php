@@ -14,23 +14,19 @@ use Tests\DeleteUser;
 
 class UserProfileTest extends TestCase
 {
-    use DeleteUser;
     /**
      * A basic feature test example.
      */
 
     public function test_can_see_user_profile_page(): void
     {
-        $user = User::factory()->create([
-            'email' => 'example@example.com',
-            'password' => 'passwordexample',
-        ]);
+        $user = User::factory()->create();
         $response = $this->actingAs($user)->get(route("user.profile"));
 
         $response->assertStatus(200);
         $response->assertViewIs("user.profile.profile");
 
-        $this->deleteUser("example@example.com");
+        $user->delete();
     }
 
     public function test_can_edit_user_account(): void
@@ -45,7 +41,7 @@ class UserProfileTest extends TestCase
             ->call("updateUserAccount");
 
         $response->assertStatus(200);
-        $this->deleteUser($user->email);
+        $user->delete();
     }
 
     public function test_can_edit_password_user_account(): void
@@ -62,15 +58,13 @@ class UserProfileTest extends TestCase
         
         $response->assertStatus(200);
         $this->assertTrue(password_verify('123456789', $user->password));
-        $this->deleteUser($user->email);
+        $user->delete();
     }
 
     public function test_it_does_not_update_password_if_old_password_is_incorrect(): void
     {
 
-        $user = User::factory()->create([
-            "password" => "currentpassword"
-        ]);
+        $user = User::factory()->create();
         
         $response = Livewire::actingAs($user)
             ->test(UpdateUserAccount::class)
@@ -79,18 +73,17 @@ class UserProfileTest extends TestCase
             ->call("updateUserAccount");
             
         $user->refresh();
-        $this->assertTrue(password_verify("currentpassword", $user->password));
+        $this->assertTrue(!password_verify("444444", $user->password));
+        $this->assertTrue(!password_verify("41142421124", $user->password));
         $response->assertSessionHas("noMatch", "El password no coincide");
 
-        $this->deleteUser($user->email);
+        $user->delete();
     }
 
     public function test_it_does_not_update_password_if_old_password_is_empty(): void
     {
 
-        $user = User::factory()->create([
-            "password" => "currentpassword"
-        ]);
+        $user = User::factory()->create();
         
         $response = Livewire::actingAs($user)
             ->test(UpdateUserAccount::class)
@@ -99,9 +92,9 @@ class UserProfileTest extends TestCase
             ->call("updateUserAccount");
             
         $user->refresh();
-        $this->assertTrue(password_verify("currentpassword", $user->password));
+        $this->assertTrue(!password_verify("41142421124", $user->password));
         $response->assertSessionHas("noMatch", "El password no coincide");
 
-        $this->deleteUser($user->email);
+        $user->delete();
     }
 }

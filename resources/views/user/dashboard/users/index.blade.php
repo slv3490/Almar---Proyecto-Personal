@@ -30,7 +30,7 @@
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->last_name }}</td>
                         <td>{{ $user->email }}</td>
-                        <td>{{ $user->getRoleNames()[0] }}</td>
+                        <td>{{ $user->getRoleNames()->first() }}</td>
                         @if (Auth::user()->hasAnyPermission(["read roles", "spectator"]))
                             <td>
                                 <div class="actions actions-user-role">

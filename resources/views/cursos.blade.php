@@ -9,7 +9,7 @@
             <div class="search-courses">
                 <form action="{{ route('cursos') }}" method="GET">
                     <div class="flex input">
-                        <img class="search-icon" src="{{ Vite::asset('resources/img/search-icon.svg') }}" alt="">
+                        <img class="search-icon" src="{{ Vite::asset('resources/img/search-icon.svg') }}" alt="Icon Search">
                         <input name="search" type="text" placeholder="Buscar Cursos" >
                     </div>
                 </form>
@@ -17,7 +17,7 @@
         </div>
 
         <section class="flex">
-            <div>
+            <div class="filter-checkbox">
                 <h3 class="mb-2">Filtrar</h3>
                 <form action="{{ route('cursos') }}" method="GET">
                     @foreach ($categories as $category)
@@ -41,6 +41,9 @@
                 </form>
             </div>
             <div id="showFilteredCourses">
+                @if ($courses->isEmpty())
+                    <p>No se ha podido encontrar el curso que buscas.</p>
+                @endif
                 @foreach ($courses as $course)
                     @if (!$course->lessons->isEmpty())
                         <a href="{{ route('courses.watch', ['courseUrl' => $course->url, 'lesson' => $course->lessons[0]->id]) }}" class="course section-course course-anchor">
