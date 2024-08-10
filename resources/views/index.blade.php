@@ -49,8 +49,8 @@
         <div class="swiper mySwiper slider-courses">
             <div class="swiper-wrapper">
                 @forelse ($courses as $course)
-                    <div class="swiper-slide image">
-                        @if (!empty($course->lessons[0]->id))
+                    @if (!$course->lessons->isEmpty())
+                        <div class="swiper-slide image">
                             <div>
                                 <a href="{{ route('courses.watch', ['courseUrl' => $course->url, 'lesson' => $course->lessons[0]->id]) }}">
                                     <img src="{{ asset('storage/images/'.$course->image_uri) }}">
@@ -59,8 +59,8 @@
                                     <p class="course-price-slider">{{ $course->price }}$</p>
                                 </a>
                             </div>
-                        @endif
-                    </div>
+                        </div>
+                    @endif
                 @empty
                     <p>No se han encontrado cursos</p>
                 @endforelse

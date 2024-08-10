@@ -42,7 +42,7 @@
             </div>
             <div id="showFilteredCourses">
                 @foreach ($courses as $course)
-                    @if (!empty($course->lessons[0]->id))
+                    @if (!$course->lessons->isEmpty())
                         <a href="{{ route('courses.watch', ['courseUrl' => $course->url, 'lesson' => $course->lessons[0]->id]) }}" class="course section-course course-anchor">
                             <div class="flex">
                                 <img src="{{ asset('storage/images/'.$course->image_uri) }}" class="image-course">
