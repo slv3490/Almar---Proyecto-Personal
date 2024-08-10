@@ -49,7 +49,7 @@ class CoursesTest extends TestCase
         $response = $this->get("/cursos?search=curso");
 
         $response->assertViewIs("cursos");
-        $response->assertDontSeeText("No hay cursos con ese nombre.");
+        $response->assertDontSeeText("No se ha podido encontrar el curso que buscas.");
         $response->assertViewHasAll([
             "courses",
             "categories"
@@ -85,9 +85,28 @@ class CoursesTest extends TestCase
         $response = $this->get("/cursos?search=course+that+does+not+exist");
 
         $response->assertViewIs("cursos");
-        $response->assertSeeText("No hay cursos con ese nombre.");
+        $response->assertSeeText("No se ha podido encontrar el curso que buscas.");
         $response->assertStatus(200);
         $course->delete();
         $user->delete();
+    }
+
+    public function test_can_filter_by_categories_checkbox() :void
+    {
+        //Ensure that the category exists in the test database
+        $response = $this->get("/cursos?category%5B%5D=7&category%5B%5D=8");
+
+        $response->assertViewIs("cursos");
+        $response->assertDontSeeText("No se ha podido encontrar el curso que buscas.");
+        $response->assertStatus(200);
+    }
+    
+    public function test_cannot_be_filtered_by_categories_because_there_are_no_courses_with_that_category_associated() :void
+    {
+        $response = $this->get("/cursos?category%5B%5D=200&category%5B%5D=500");
+
+        $response->assertViewIs("cursos");
+        $response->assertSeeText("No se ha podido encontrar el curso que buscas.");
+        $response->assertStatus(200);
     }
 }

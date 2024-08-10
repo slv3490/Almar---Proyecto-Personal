@@ -53,8 +53,8 @@ Route::middleware('auth')->group(function () {
     Route::put("/dashboard/courses/{courseUrl}/update-lessons/{id}", [LessonController::class, "updateLessons"])->middleware("user.has.any.permission:update lessons,spectator")->name("update-lessons");
     Route::delete("/courses/{courseUrl}/delete-lessons/{id}", [LessonController::class, "deleteLessons"])->middleware("user.has.any.permission:delete lessons")->name("delete-lessons");
     //Categories
-    Route::get("/dashboard/categories", [CategoryController::class, "index"])->middleware("user.has.any.permission:read categories")->name("categories.index");
-    Route::get("/dashboard/create-categories", [CategoryController::class, "createCategories"])->middleware("user.has.any.permission:read categories")->name("create-categories");
+    Route::get("/dashboard/categories", [CategoryController::class, "index"])->middleware("user.has.any.permission:read categories,spectator")->name("categories.index");
+    Route::get("/dashboard/create-categories", [CategoryController::class, "createCategories"])->middleware("user.has.any.permission:read categories,spectator")->name("create-categories");
     Route::post("/dashboard/create-categories", [CategoryController::class, "storeCategories"])->middleware("user.has.any.permission:create categories")->name("store-categories");
     //Logout
     Route::get("/logout", [UserController::class, "logout"])->name("logout");

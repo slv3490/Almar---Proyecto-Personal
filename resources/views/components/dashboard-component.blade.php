@@ -18,7 +18,7 @@
         <a class="{{ ($title === 'Courses') ? 'activo' : '' }}" href="{{ route("course.index") }}"><p>Cursos</p></a>
     @endif
 
-    @if (Auth::user()->hasPermissionTo("read categories"))
+    @if (Auth::user()->hasAnyPermission(["read categories", "spectator"]))
         <a class="{{ ($title === 'Categories') ? 'activo' : '' }}" href="{{ route("categories.index") }}"><p>Categorias</p></a>
     @endif
 </div>

@@ -17,7 +17,7 @@
         </div>
 
         <section class="flex">
-            <div>
+            <div class="filter-checkbox">
                 <h3 class="mb-2">Filtrar</h3>
                 <form action="{{ route('cursos') }}" method="GET">
                     @foreach ($categories as $category)
@@ -42,7 +42,7 @@
             </div>
             <div id="showFilteredCourses">
                 @if ($courses->isEmpty())
-                    <p>No hay cursos con ese nombre.</p>
+                    <p>No se ha podido encontrar el curso que buscas.</p>
                 @endif
                 @foreach ($courses as $course)
                     @if (!$course->lessons->isEmpty())
