@@ -10,7 +10,11 @@ document.addEventListener("DOMContentLoaded", function() {
 async function categoriesQuery() {
     try {
         const url = "/api/categories-query";
-        const response = await fetch(url);
+        const response = await fetch(url, {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem("token"),
+            }
+        }); 
         const result = await response.json();
 
         categoriesOptions(result);

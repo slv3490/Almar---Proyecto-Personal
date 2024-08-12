@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Livewire\Forms\LogInForm;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class LogIn extends Component
@@ -21,7 +22,11 @@ class LogIn extends Component
         $this->validate();
 
         if(Auth::attempt(['email' => $this->session->email, 'password' => $this->session->password])) {
-            return redirect()->route("dashboard");
+            $user = User::where("email", $this->session->email)->first();
+            $token = $user->createToken("API TOKEN")->plainTextToken;
+            session(['api_token' => $token]);
+
+            return redirect()->route('dashboard');
         } else {
             session()->flash('errors', 'Los datos no coinciden con nuestras credenciales.');
         }

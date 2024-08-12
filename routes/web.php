@@ -18,8 +18,8 @@ Route::get('/user/remember', [UserController::class, "remember"])->name("user.re
 Route::middleware('auth')->group(function () {
     //User Profile
     Route::get("/user/profile", [UserController::class, "userProfile"])->name("user.profile");
-    Route::put("/user/profile", [UserController::class, "updateUserProfile"])->name("update.user.profile");
-    Route::delete("/user/profile/delete-account/{id}", [UserController::class, "deleteUserAccount"])->name("delete.user.account");
+    Route::put("/user/profile", [UserController::class])->name("update.user.profile");
+    Route::delete("/user/profile/delete-account/{id}", [UserController::class, "deleteUserAccount"])->middleware("user.has.not.permission:spectator")->name("delete.user.account");
     //show
     Route::get("/dashboard", [DashboardController::class, "dashboard"])->name("dashboard");
     //Users ->middleware("user.has.any.permission:")

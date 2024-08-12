@@ -50,6 +50,10 @@ class UpdateUserAccount extends Component
         }
     }
 
+    public function userNotAuthorized() {
+        abort(401);
+    }
+
     public function render()
     {
         return view('livewire.update-user-account');

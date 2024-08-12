@@ -20,7 +20,10 @@ class CreateUser extends Component
 
         Auth::login($user);
 
-        return redirect()->route("dashboard");
+        $token = $user->createToken("API TOKEN")->plainTextToken;
+        session(['api_token' => $token]);
+
+        return redirect()->route('dashboard');
     }
 
     public function render()

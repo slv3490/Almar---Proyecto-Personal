@@ -10,7 +10,11 @@
     async function rolesQuery() {
         try {
             const url = "/api/query-permissions-roles";
-            const response = await fetch(url);
+            const response = await fetch(url, {
+                headers: {
+                    "Authorization": "Bearer " + localStorage.getItem("token")
+                }
+            });
             const result = await response.json();
     
             rolesOptions(result);

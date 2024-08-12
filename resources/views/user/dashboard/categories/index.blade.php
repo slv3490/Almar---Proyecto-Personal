@@ -11,11 +11,11 @@
         @endif
 
         <section>
-            @if (Auth::user()->hasAnyPermission(["create categories", "spectator"]))
+            @if (Auth::user()->hasPermissionTo("create categories"))
                 <a href="{{ route('create-categories') }}" class="boton">Crear Categoria</a>
             @endif
             
-            @if (Auth::user()->hasAllPermissions(["update categories", "delete categories"]) || Auth::user()->hasPermissionTo("spectator"))
+            @if (Auth::user()->hasAllPermissions(["update categories", "delete categories"]))
                 <ul class="categories-list"></ul>
             @endif
         </section>

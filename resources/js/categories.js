@@ -5,7 +5,11 @@ if(document.querySelector(".categories-list")) {
     async function listCategories() {
         try {
             const url = "/api/categories-query";
-            const response = await fetch(url);
+            const response = await fetch(url, {
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem("token")
+                }
+            });
             const result = await response.json();
 
             list = result[0];
@@ -99,7 +103,10 @@ if(document.querySelector(".categories-list")) {
             const url = `/api/update-category/${id}`;
             const response = await fetch(url, {
                 method: "POST",
-                body: data
+                body: data,
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem("token"),
+                }
             })
 
             if(response) {
@@ -123,7 +130,10 @@ if(document.querySelector(".categories-list")) {
         try {
             const url = `/api/delete-category/${id}`;
             const response = await fetch(url, {
-                method: "DELETE"
+                method: "DELETE",
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem("token"),
+                }
             });
             const result = await response.json();
 
