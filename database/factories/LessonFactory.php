@@ -20,7 +20,7 @@ class LessonFactory extends Factory
             "title" => fake()->sentence(),
             "description" => fake()->paragraph(),
             "content_uri" => "https://youtube.com/embed/aZ9jJcPCa7Q?si=8dz_lwo55FKp2Yxv&t=1",
-            "course_id" => rand(1, 6)
+            "course_id" => rand(1, 12)
         ];
     }
 }

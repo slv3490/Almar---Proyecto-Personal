@@ -117,3 +117,26 @@
 .display-none {
     display: none;
 }
+.alert {
+    text-align: center;
+    padding: 0.5rem;
+    margin-top: 3rem;
+}
+.alert-success {
+    background-color: v.$success;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+.alert-warning {
+    background-color: v.$warning;
+    border: 1px solid #ffeeba;
+    color: #856404;
+}
+.alert-error {
+    background-color: v.$error;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+.overflow-hidden {
+    overflow: hidden;
+}

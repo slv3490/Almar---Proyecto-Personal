@@ -17,6 +17,8 @@ class CreateUser extends Component
         $this->validate();
         
         $user = User::create($this->user->all());
+        $user->givePermissionTo("user");
+        $user->assignRole("user");
 
         Auth::login($user);
 

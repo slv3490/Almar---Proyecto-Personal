@@ -24,7 +24,7 @@
             flex: 1;
         }
     }
-    input[type="submit"] {
+    input[type="submit"], input[type="button"] {
         display: block;
         margin: 2rem 0 0 auto;
     }

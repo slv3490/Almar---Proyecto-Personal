@@ -1,0 +1,26 @@
+@use '../../base/variables' as v;
+
+.article {
+    p, li {
+        font-size: 2.5rem;
+        line-height: 1.5;
+    }
+    li {
+        margin: .5rem auto;
+    }
+    h1, h2 {
+        margin: 4rem auto;
+    }
+}
+.div-description-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    .image-responsive {
+        flex: 1;
+    }
+    p {
+        flex: 2;
+    }
+}

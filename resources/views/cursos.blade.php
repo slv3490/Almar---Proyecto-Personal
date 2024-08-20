@@ -1,6 +1,21 @@
 @extends('layouts.base')
 
 @section('content')
+    @if (session('success'))
+        <div class="alert alert-success course-purchased">
+            {{ session('success') }}
+        </div>
+    @endif
+    @if (session('warning'))
+        <div class="alert alert-warning course-purchased">
+            {{ session('warning') }}
+        </div>
+    @endif
+    @if (session('error'))
+        <div class="alert alert-error course-purchased">
+            {{ session('error') }}
+        </div>
+    @endif
 
     <div class="contenedor container-course">
         <div>
@@ -46,7 +61,33 @@
                 @endif
                 @foreach ($courses as $course)
                     @if (!$course->lessons->isEmpty())
-                        <a href="{{ route('courses.watch', ['courseUrl' => $course->url, 'lesson' => $course->lessons[0]->id]) }}" class="course section-course course-anchor">
+                    <form action="{{ route('payment.create') }}" method="GET" class="course-parent">
+                        <input type="hidden" value="{{ $course->id }}" name="course_id">
+                        <input type="hidden" value="{{ $course->description }}" name="description">
+                        <input type="hidden" value="{{ $course->price }}" name="course_price">
+                        <a href="#" class="course section-course">
+                            <img src="{{ asset('storage/images/'.$course->image_uri) }}" class="image-course">
+                            <div>
+                                <h3 class="text-left title-course">{{ $course->title }}</h3>
+                                <p class="description-course">{{ $course->description }}</p>
+                                <div class="flex itemsCategories">
+                                    @foreach ($course->categories as $category)
+                                        <p class="idListCategories">{{ $category->name }}</p>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <p class="bold course-price">{{ $course->price }} US$</p>
+                        </a>
+                        <div class="display-none">
+                            <div class="div-payment">
+                                <p>¿Deseas adquirir <span class="bold">"{{ $course->title }}"</span>?</p>
+                                <input type="submit" class="hidden boton" value="Comprar Curso">
+                            </div>
+                        </div>
+                    </form>
+                        {{-- Codigo Viejo --}}
+
+                        {{-- <a href="{{ route('courses.watch', ['courseUrl' => $course->url, 'lesson' => $course->lessons[0]->id]) }}" class="course section-course course-anchor">
                             <div class="flex">
                                 <img src="{{ asset('storage/images/'.$course->image_uri) }}" class="image-course">
 
@@ -61,7 +102,7 @@
                                 </div>
                             </div>
                             <p class="bold course-price">{{ $course->price }} US$</p>
-                        </a>
+                        </a> --}}
                     @endif
                 @endforeach
                 {{ $courses->links() }}

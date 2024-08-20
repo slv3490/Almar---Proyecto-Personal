@@ -4,9 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\RolesController;
-use App\Http\Controllers\LessonController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\LessonController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ArticlesController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 
 Route::get("/", [IndexController::class, "index"])->name("index");
@@ -14,8 +16,16 @@ Route::get("/cursos", [IndexController::class, "cursos"])->name("cursos");
 Route::get('/iniciar-sesion', [UserController::class, "session"])->name("iniciar-session");
 Route::get('/user/create', [UserController::class, "create"])->name("user.create");
 Route::get('/user/remember', [UserController::class, "remember"])->name("user.remember");
+Route::get("/articles/meditation", [ArticlesController::class, "articleMeditation"])->name("article.meditation");
+Route::get("/articles/exercise", [ArticlesController::class, "articleExercise"])->name("article.exercise");
+Route::get("/articles/hobbies", [ArticlesController::class, "articleHobbies"])->name("article.hobbies");
+
 
 Route::middleware('auth')->group(function () {
+    //PAYPAL
+    Route::get('/create-payment', [PaymentController::class, 'createPayment'])->name('payment.create');
+    Route::get('/payment-success', [PaymentController::class, 'paymentSuccess'])->name('payment.success');
+    Route::get('/payment-cancel', [PaymentController::class, 'paymentCancel'])->name('payment.cancel');
     //User Profile
     Route::get("/user/profile", [UserController::class, "userProfile"])->name("user.profile");
     Route::put("/user/profile", [UserController::class])->name("update.user.profile");

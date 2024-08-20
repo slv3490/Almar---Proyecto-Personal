@@ -65,7 +65,7 @@
     margin: 0;
     font-weight: 400;
     padding: .5rem .8rem;
-    background-color: lighten($color: v.$verde, $amount: 2);
+    background-color: lighten($color: v.$verdeClaro, $amount: 2);
     text-align: center;
     border-radius: .5rem;
     transition: 300ms background-color ease;
@@ -75,7 +75,7 @@
     font-size: 1.3rem;
     cursor: pointer;
     &:hover {
-        background-color: v.$verde;
+        background-color: darken($color: v.$verdeClaro, $amount: 5);
     }
 }
 //Hacer un boton para evitar duplicidad

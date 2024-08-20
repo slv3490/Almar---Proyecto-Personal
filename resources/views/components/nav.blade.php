@@ -1,5 +1,5 @@
 <div class="nav contenedor">
-    <a href="{{ route("index") }}">Almar</a>
+    <a href="{{ route("index") }}">CurOl</a>
     <nav class="enlaces">
         <a href="{{ route("cursos") }}"><p>Cursos</p></a>
         <a href="#"><p>Blogs</p></a>

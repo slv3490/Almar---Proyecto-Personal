@@ -6,6 +6,7 @@ use Tests\TestCase;
 use App\Models\User;
 use Tests\DeleteUser;
 use App\Models\Category;
+use Laravel\Sanctum\Sanctum;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -44,6 +45,10 @@ class CategoriesTest extends TestCase
     }
     public function test_get_all_categories(): void
     {
+        Sanctum::actingAs(
+            User::factory()->create(),
+            ['token_api']
+        );
         $response = $this->getJson("/api/categories-query");
         $response->assertStatus(200);
         $response->assertJsonStructure([
@@ -86,6 +91,10 @@ class CategoriesTest extends TestCase
 
     public function test_can_edit_category_name(): void
     {
+        Sanctum::actingAs(
+            User::factory()->create(),
+            ['token_api']
+        );
         $category = Category::create([
             "name" => "New Category"
         ]);
@@ -105,6 +114,10 @@ class CategoriesTest extends TestCase
     }
     public function test_can_delete_category(): void
     {
+        Sanctum::actingAs(
+            User::factory()->create(),
+            ['token_api']
+        );
         $category = Category::create([
             "name" => "New Category"
         ]);

@@ -7,9 +7,9 @@ import "./roles";
 import "./validate-fields-lesson";
 import "./video-checked";
 import "./slider";
-import "./courses-filter";
 import "./login";
 import "./delete-user-account";
+import "./courses-payment";
 import.meta.glob([
     '../img/**.*'
 ]);

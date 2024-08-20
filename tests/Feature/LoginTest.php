@@ -24,6 +24,7 @@ class LoginTest extends TestCase
 
     public function test_to_log_in(): void
     {
+        //Asegurarse que este usuario existe
         $user = User::where('email', 'admin@admin.com')->first();
 
         Livewire::test(LogIn::class)

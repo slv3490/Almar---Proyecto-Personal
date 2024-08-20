@@ -112,5 +112,32 @@ class CourseSeeder extends Seeder
             "url" => md5(uniqid(rand(), true)),
             "user_id" => 3
         ]);
+
+
+        //The first three courses on the page index | Editor
+        Course::create([
+            "title" => "Curso Sobre Cocina",
+            "description" => fake()->paragraph(),
+            "price" => 13.99,
+            "image_uri" => "aa3aeb6cb7c3c7260323656eb54aab03.jpg",
+            "url" => md5(uniqid(rand(), true)),
+            "user_id" => 2
+        ]);
+        Course::create([
+            "title" => "Curso Idiomas Extranjeros",
+            "description" => fake()->paragraph(),
+            "price" => 13.99,
+            "image_uri" => "aa3aeb6cb7c3c7260323656eb54aab03.jpg",
+            "url" => md5(uniqid(rand(), true)),
+            "user_id" => 2
+        ]);
+        Course::create([
+            "title" => "Curso Sobre Finanzas",
+            "description" => fake()->paragraph(),
+            "price" => 13.99,
+            "image_uri" => "aa3aeb6cb7c3c7260323656eb54aab03.jpg",
+            "url" => md5(uniqid(rand(), true)),
+            "user_id" => 2
+        ]);
     }
 }

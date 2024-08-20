@@ -12,7 +12,7 @@
 
                 <div class="contenedor-art-cursos">
                     <article >
-                        <a class="flex articulo-curso" href="">
+                        <a class="flex articulo-curso" href="{{ route('payment.create', 10) }}">
                             <img src="{{ Vite::asset("resources/img/curso-cocina.jpg") }}" alt=" curso de finanzas">
                             <div>
                                 <h3>Cursos Sobre Cocina</h3>
@@ -74,29 +74,35 @@
         <section class="articulos">
             <h2>Últimos Artículos</h2>
             <div class="cards">
-                <a href="">
-                    <x-cards>
-                        <x-slot name="imageCard">meditacion.jpg</x-slot>
-                        <x-slot name="alt">Imagen de una persona meditando</x-slot>
-                        <x-slot name="titulo">Meditacion</x-slot>
-                        <x-slot name="descripcion">Encuentra la paz interior a través de la meditación, despeja tu mente y encuentra claridad</x-slot>
-                    </x-cards>
+                <a href="{{ route('article.meditation') }}">
+                    <div class="cards-articulos">
+                        <img class="card-desplegable" src="{{ Vite::asset("resources/img/meditacion.jpg") }}" alt="Imagen de una persona meditando">
+                        <div class="info-card">
+                            <h3 class="centrar-texto d-none titulo-card">Meditacion</h3>
+                            <p class="centrar-texto d-none descripcion-card">Encuentra la paz interior a través de la meditación, despeja tu mente y encuentra claridad</p>
+                        </div>
+                        <div class="fondo"></div>
+                    </div>
                 </a>
-                <a href="">
-                    <x-cards>
-                        <x-slot name="imageCard">corredor.jpg</x-slot>
-                        <x-slot name="alt">Imagen de un chico corriendo</x-slot>
-                        <x-slot name="titulo">Ejercicios</x-slot>
-                        <x-slot name="descripcion">Mejora tu bienestar físico y mental con nuestra selección de ejercicios</x-slot>
-                    </x-cards>
+                <a href="{{ route('article.exercise') }}">
+                    <div class="cards-articulos">
+                        <img class="card-desplegable" src="{{ Vite::asset("resources/img/corredor.jpg") }}" alt="Imagen de un chico corriendo">
+                        <div class="info-card">
+                            <h3 class="centrar-texto d-none titulo-card">Ejercicios</h3>
+                            <p class="centrar-texto d-none descripcion-card">Mejora tu bienestar físico y mental con nuestra selección de ejercicios</p>
+                        </div>
+                        <div class="fondo"></div>
+                    </div>
                 </a>
-                <a href="">
-                    <x-cards>
-                        <x-slot name="imageCard">hobbies.jpg</x-slot>
-                        <x-slot name="alt">Imagen de un fotografo</x-slot>
-                        <x-slot name="titulo">Hobbies</x-slot>
-                        <x-slot name="descripcion">Descubre nuevas pasiones y despierta tu creatividad con nuestros fascinantes hobbies</x-slot>
-                    </x-cards>
+                <a href="{{ route('article.hobbies') }}">
+                    <div class="cards-articulos">
+                        <img class="card-desplegable" src="{{ Vite::asset("resources/img/hobbies.jpg") }}" alt="Imagen de un fotografo">
+                        <div class="info-card">
+                            <h3 class="centrar-texto d-none titulo-card">Hobbies</h3>
+                            <p class="centrar-texto d-none descripcion-card">Descubre nuevas pasiones y despierta tu creatividad con nuestros fascinantes hobbies</p>
+                        </div>
+                        <div class="fondo"></div>
+                    </div>
                 </a>
             </div>
         </section> <!-- Articulos -->
@@ -106,34 +112,30 @@
             <h2 class="centrar-texto mt-5">Blogs</h2>
             <article class="contenido">
                 <img src="{{ Vite::asset("resources/img/descanso.jpg") }}" alt="persona durmiendo en su cama">
-
-                <x-art-recomendacion>
-                    <x-slot name="title">Duerme mejor y evita distracciones</x-slot>
-                    <x-slot name="description">Descubre el camino hacia un descanso reparador con nuestra guía para dormir mejor y evitar distracciones.</x-slot>
-                    <x-slot name="route">cursos</x-slot>
-                </x-art-recomendacion>
+                <div>
+                    <h3>Duerme mejor y evita distracciones</h2>
+                    <p>Descubre el camino hacia un descanso reparador con nuestra guía para dormir mejor y evitar distracciones.</p>
+                    <a class="boton" href="{{ route("cursos") }}">Leer más</a>
+                </div>
             </article>
 
             <article class="contenido">
                 <img class="imagen" src="{{ Vite::asset("resources/img/ejercicio.jpg") }}" alt="persona levantando peso muerto">
-
-                <x-art-recomendacion>
-                    <x-slot name="title">Haz ejercicio y mantente activo</x-slot>
-                    <x-slot name="description">Descubre el poder transformador de la actividad física, con consejos prácticos y motivadores para incorporar el ejercicio a tu rutina diaria.</x-slot>
-                    <x-slot name="route">cursos</x-slot>
-                </x-art-recomendacion>
+                <div>
+                    <h3>Haz ejercicio y mantente activo</h2>
+                    <p>Descubre el poder transformador de la actividad física, con consejos prácticos y motivadores para incorporar el ejercicio a tu rutina diaria.</p>
+                    <a class="boton" href="{{ route("cursos") }}">Leer más</a>
+                </div>
             </article>
 
             <article class="contenido">
                 <img class="imagen" src="{{ Vite::asset("resources/img/estudio.jpg") }}" alt="cubos con la palabra study">
-
-                <x-art-recomendacion>
-                    <x-slot name="title">Estudia algo que te apacione</x-slot>
-                    <x-slot name="description">Desarrolla habilidades y conocimientos mientras te sumerges en un viaje educativo personalizado, diseñado para cultivar tu amor por el tema elegido.</x-slot>
-                    <x-slot name="route">cursos</x-slot>
-                </x-art-recomendacion>
+                <div>
+                    <h3>Estudia algo que te apacione</h2>
+                    <p>Desarrolla habilidades y conocimientos mientras te sumerges en un viaje educativo personalizado, diseñado para cultivar tu amor por el tema elegido.</p>
+                    <a class="boton" href="{{ route("cursos") }}">Leer más</a>
+                </div>
             </article>
         </section> <!-- Blogs -->
-
     </main>
 @endsection
