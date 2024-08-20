@@ -1,10 +1,10 @@
 <div class="seccion-dashboard">
     <a class="{{ ($title == 'Dashboard') ? 'activo' : '' }}" href="{{ route("dashboard") }}"><p><b>Dashboard</b></p></a>
 
-    @if (Auth::user()->hasPermissionTo("user"))
-        <a class="{{ ($title === 'MyCourses') ? 'activo' : '' }}" href="#"><p>Mis Cursos</p></a>
-        <a class="{{ ($title === 'Favorites') ? 'activo' : '' }}" href="#"><p>Favoritos</p></a>
-    @endif
+    {{-- @if (Auth::user()->hasPermissionTo("user"))
+        <a class="{{ ($title === 'MyCourses') ? 'activo' : '' }}" href="{{ route('dashboard.my.courses') }}"><p>Mis Cursos</p></a>
+        <a class="{{ ($title === 'Favorites') ? 'activo' : '' }}" href="{{ route('dashboard.favorites') }}"><p>Favoritos</p></a>
+    @endif --}}
 
     @if (Auth::user()->hasAnyPermission(["read roles", "spectator"]))
         <a class="{{ ($title === 'Roles') ? 'activo' : '' }}" href="{{ route("roles.index") }}"><p>Roles y Permisos</p></a>

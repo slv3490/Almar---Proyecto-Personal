@@ -100,7 +100,7 @@ class CourseSeeder extends Seeder
             "title" => fake()->sentence(),
             "description" => fake()->paragraph(),
             "price" => 77.99,
-            "image_uri" => "4f4773979b523c8c455af54f1a2f399d.jpg",
+            "image_uri" => "cdb8b3ce9cb1a0a5246e8f0f0ea7c192.jpg",
             "url" => md5(uniqid(rand(), true)),
             "user_id" => 3
         ]);
@@ -112,7 +112,6 @@ class CourseSeeder extends Seeder
             "url" => md5(uniqid(rand(), true)),
             "user_id" => 3
         ]);
-
 
         //The first three courses on the page index | Editor
         Course::create([

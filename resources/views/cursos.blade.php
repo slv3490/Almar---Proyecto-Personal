@@ -85,24 +85,6 @@
                             </div>
                         </div>
                     </form>
-                        {{-- Codigo Viejo --}}
-
-                        {{-- <a href="{{ route('courses.watch', ['courseUrl' => $course->url, 'lesson' => $course->lessons[0]->id]) }}" class="course section-course course-anchor">
-                            <div class="flex">
-                                <img src="{{ asset('storage/images/'.$course->image_uri) }}" class="image-course">
-
-                                <div>
-                                    <h3 class="text-left title-course">{{ $course->title }}</h3>
-                                    <p class="description-course">{{ $course->description }}</p>
-                                    <div class="flex itemsCategories">
-                                        @foreach ($course->categories as $category)
-                                            <p class="idListCategories">{{ $category->name }}</p>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="bold course-price">{{ $course->price }} US$</p>
-                        </a> --}}
                     @endif
                 @endforeach
                 {{ $courses->links() }}

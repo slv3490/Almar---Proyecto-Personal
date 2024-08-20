@@ -11,7 +11,7 @@
                 <video muted loop autoplay src="{{ Vite::asset("resources/videos/cocina.mp4") }}"></video>
 
                 <div class="contenedor-art-cursos">
-                    <article >
+                    <article>
                         <a class="flex articulo-curso" href="{{ route('payment.create', 10) }}">
                             <img src="{{ Vite::asset("resources/img/curso-cocina.jpg") }}" alt=" curso de finanzas">
                             <div>
@@ -52,7 +52,7 @@
                     @if (!$course->lessons->isEmpty())
                         <div class="swiper-slide image">
                             <div>
-                                <a href="{{ route('courses.watch', ['courseUrl' => $course->url, 'lesson' => $course->lessons[0]->id]) }}">
+                                <a href="{{ route('cursos', "search=" . $course->title) }}">
                                     <img src="{{ asset('storage/images/'.$course->image_uri) }}">
                                     <h4 class="title-slider">{{ $course->title }}</h4>
                                     <p class="course-owner">{{ $course->user->name }}</p>

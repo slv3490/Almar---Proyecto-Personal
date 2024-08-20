@@ -32,7 +32,9 @@ Route::middleware('auth')->group(function () {
     Route::delete("/user/profile/delete-account/{id}", [UserController::class, "deleteUserAccount"])->middleware("user.has.not.permission:spectator")->name("delete.user.account");
     //show
     Route::get("/dashboard", [DashboardController::class, "dashboard"])->name("dashboard");
-    //Users ->middleware("user.has.any.permission:")
+    // Route::get("/dashboard/my-courses", [DashboardController::class, "myCourses"])->name("dashboard.my.courses");
+    // Route::get("/dashboard/favorites", [DashboardController::class, "favorites"])->name("dashboard.favorites");
+    //Users
     Route::middleware("user.has.role:admin,spectator")->group(function() {
         Route::get("/dashboard/users", [UserController::class, "index"])->name("users.index");
         Route::get("/dashboard/users/update-roles/{id}", [UserController::class, "showUsersRoles"])->middleware("user.has.any.permission:read roles,spectator")->name("users.show-roles");
@@ -47,7 +49,7 @@ Route::middleware('auth')->group(function () {
     Route::delete("/dashboard/delete-role/{id}", [RolesController::class, "deleteRole"])->middleware("user.has.any.permission:delete roles")->name("delete-roles");
     //Courses
     Route::get("/dashboard/courses", [CourseController::class, "index"])->middleware("user.has.any.permission:read lessons,spectator")->name("course.index");
-    Route::get("/courses/{courseUrl}/watch/{lesson}", [CourseController::class, "watchCourse"])->middleware("user.has.any.permission:read lessons,spectator")->name("courses.watch");
+    Route::get("/courses/{courseUrl}/watch/{lesson}", [CourseController::class, "watchCourse"])->middleware("user.has.a.course")->name("courses.watch");
     
     Route::get("/dashboard/courses/create-courses", [CourseController::class, "createCourses"])->middleware("user.has.any.permission:read lessons,spectator")->name("create-courses");
     Route::post("/dashboard/courses/create-courses", [CourseController::class, "storeCourses"])->middleware("user.has.any.permission:create lessons")->name("store-courses");

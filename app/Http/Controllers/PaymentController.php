@@ -62,6 +62,9 @@ class PaymentController extends Controller
             $courseId = Course::find(session("course_id"));
             // Procesa la venta y guarda la transacción
             Auth::user()->purchasedCourses()->attach($courseId);
+
+            session()->forget("course_id");
+
             return redirect()->route('cursos')->with('success', 'Pago realizado correctamente');
         }
 

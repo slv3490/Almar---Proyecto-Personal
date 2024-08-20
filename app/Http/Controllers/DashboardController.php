@@ -3,44 +3,36 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Role;
 
 class DashboardController extends Controller
 {
     public function dashboard() 
     {
+        $courses = Auth::user()->purchasedCourses;
+
         return view("user.dashboard.dashboard", [
-            "title" => "Dashboard"
+            "title" => "Dashboard",
+            "courses" => $courses
         ]);
     }
 
-    //Roles
-    public function createRoles(Request $request) 
+    public function myCourses()
     {
-        
-        return view("user.dashboard.create-roles", [
-            "title" => "Crear Roles"
+        $courses = Auth::user()->purchasedCourses;
+
+        return view("user.dashboard.my-courses", [
+            "title" => "MyCourses",
+            "courses" => $courses
         ]);
     }
-    public function storeRoles(Request $request) 
+    public function favorites()
     {
-        
-    }
-
-    //Permissions
-    public function createPermissions() 
-    {
-        return view("user.dashboard.create-permissions", [
-            "title" => "Crear Permisos"
-        ]);
-    }
-
-    //Category
-    public function createCategories() 
-    {
-        return view("user.dashboard.create-categories", [
-            "title" => "Crear Categorias"
+        return view("user.dashboard.favorites", [
+            "title" => "Favorites"
         ]);
     }
     
