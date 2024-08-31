@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\IndexController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ArticlesController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 Route::get("/", [IndexController::class, "index"])->name("index");
 Route::get("/cursos", [IndexController::class, "cursos"])->name("cursos");
@@ -20,8 +22,24 @@ Route::get("/articles/meditation", [ArticlesController::class, "articleMeditatio
 Route::get("/articles/exercise", [ArticlesController::class, "articleExercise"])->name("article.exercise");
 Route::get("/articles/hobbies", [ArticlesController::class, "articleHobbies"])->name("article.hobbies");
 
+//Emails
+Route::get('/email/verify', function () {
+    return view('user.verify-email');
+})->middleware('auth')->name('verification.notice');
 
-Route::middleware('auth')->group(function () {
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+ 
+    return redirect()->route("dashboard");
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+ 
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+Route::middleware(['auth', "verified"])->group(function () {
     //PAYPAL
     Route::get('/create-payment', [PaymentController::class, 'createPayment'])->name('payment.create');
     Route::get('/payment-success', [PaymentController::class, 'paymentSuccess'])->name('payment.success');
@@ -69,5 +87,5 @@ Route::middleware('auth')->group(function () {
     Route::get("/dashboard/create-categories", [CategoryController::class, "createCategories"])->middleware("user.has.any.permission:read categories,spectator")->name("create-categories");
     Route::post("/dashboard/create-categories", [CategoryController::class, "storeCategories"])->middleware("user.has.any.permission:create categories")->name("store-categories");
     //Logout
-    Route::get("/logout", [UserController::class, "logout"])->name("logout");
 });
+Route::get("/logout", [UserController::class, "logout"])->name("logout");
