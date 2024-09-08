@@ -7,7 +7,7 @@ use App\Livewire\Forms\LogInForm;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
-class LogIn extends Component
+class Login extends Component
 {
     public LogInForm $session;
     public $spectator;
