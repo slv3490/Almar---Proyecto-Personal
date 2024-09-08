@@ -7,7 +7,7 @@ use App\Livewire\Forms\LogInForm;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
-class Login extends Component
+class LogIn extends Component
 {
     public LogInForm $session;
     public $spectator;
@@ -33,6 +33,6 @@ class Login extends Component
     }
     public function render()
     {
-        return view('livewire.login');
+        return view('livewire.log-in');
     }
 }
