@@ -8,7 +8,7 @@
             <p class="centrar-texto">¡Prueba alguno de nuestros cursos!</p>
 
             <div class="cursos-mostrar">
-                <video muted loop autoplay src="{{ Vite::asset("resources/videos/cocina.mp4") }}"></video>
+                <video muted loop autoplay src="{{ asset("videos/cocina.mp4") }}"></video>
 
                 <div class="contenedor-art-cursos">
                     <article>
