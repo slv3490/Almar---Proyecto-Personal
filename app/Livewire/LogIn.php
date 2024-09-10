@@ -16,6 +16,9 @@ class LogIn extends Component
     {
         if($this->spectator) {
             if(Auth::attempt(["email" => "espectador@espectador.com", "password" => "espectador"])) {
+                $user = User::where("email", "espectador@espectador.com")->first();
+                $token = $user->createToken("API TOKEN")->plainTextToken;
+                session(['api_token' => $token]);
                 return redirect()->route("dashboard");
             }
         }
