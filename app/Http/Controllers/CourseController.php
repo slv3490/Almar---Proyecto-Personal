@@ -39,6 +39,9 @@ class CourseController extends Controller
             $manager = new ImageManager(Driver::class);
             $image = $manager->read($request->image_uri->getRealPath());
             $image->cover(306, 204);
+            if(!Storage::disk('public')->exists("images")) {
+                Storage::makeDirectory("public/images");
+            }
             $image->save(storage_path("app/public/images/". $imageName));
             $url = md5(uniqid(rand(), true));
         }
@@ -83,6 +86,9 @@ class CourseController extends Controller
             $manager = new ImageManager(Driver::class);
             $image = $manager->read($request->image_uri);
             $image->cover(306, 204);
+            if(!Storage::disk('public')->exists("images")) {
+                Storage::makeDirectory("public/images");
+            }
             $image->save(storage_path("app/public/images/". $imageName));
         } else {
             $imageName = $course->image_uri;
